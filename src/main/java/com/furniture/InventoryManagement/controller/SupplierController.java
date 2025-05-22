@@ -17,18 +17,18 @@ public class SupplierController {
 
     @Autowired
     private SupplierService supplierService;
-
+    @CrossOrigin
     @PostMapping("/add")
     public ResponseEntity<String> addSupplier(@RequestBody SupplierModel model){
         return new ResponseEntity<>(supplierService.addSupplier(model), HttpStatusCode.valueOf(200));
     }
 
-
+    @CrossOrigin
     @PostMapping("/edit/{id}")
     public ResponseEntity<SupplierModel> editSupplier(@RequestBody SupplierModel model, @PathVariable long id){
         return new ResponseEntity<>(supplierService.editSupplier(model, id), HttpStatusCode.valueOf(201));
     }
-
+    @CrossOrigin
     @PostMapping("/fetch/{id}")
     public ResponseEntity<SupplierModel> fetchSupplier( @PathVariable long id){
         return new ResponseEntity<>(supplierService.fetchSupplierById(id), HttpStatusCode.valueOf(202));
